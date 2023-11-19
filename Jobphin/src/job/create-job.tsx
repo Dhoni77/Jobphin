@@ -1,11 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import { StepForm } from '@/step-form/form';
-import {
-  Dialog,
-  DialogTitle,
-  DialogOverlay,
-  DialogDescription,
-} from '@/ui';
+import { Dialog, DialogTitle, DialogOverlay, DialogDescription } from '@/ui';
 import { Transition } from '@headlessui/react';
 import { Button } from '@/ui';
 
@@ -29,7 +24,7 @@ export function CreateJobForm() {
       <div>
         <Button
           type='button'
-          className='rounded-sm bg-cyan-400 text-sm opacity-85 font-medium shadow-xl duration-300 hover:bg-opacity-50'
+          className='opacity-85 rounded-sm bg-cyan-400 text-sm font-medium shadow-xl duration-300 hover:bg-opacity-50'
           onClick={() => setIsOpen(true)}
         >
           Create

@@ -4,12 +4,7 @@ import { Apply, IJob, IJobSchema } from '@/models';
 import { FieldsetLegend, Input, Label } from '@/ui';
 import { Transition } from '@headlessui/react';
 import { XCircleIcon } from '@heroicons/react/24/solid';
-import {
-  Dialog,
-  DialogDescription,
-  DialogOverlay,
-  DialogTitle,
-} from '@/ui';
+import { Dialog, DialogDescription, DialogOverlay, DialogTitle } from '@/ui';
 import { Fragment, useState } from 'react';
 import { updateJob } from '../api';
 import { modifyJob } from '@/state/jobSlice';
@@ -186,7 +181,10 @@ export function JobEditForm(props: Props) {
                   {...register('apply')}
                   type='radio'
                 />
-                <Label className='text-md text-job-dark' htmlFor={Apply.QuickApply}>
+                <Label
+                  className='text-md text-job-dark'
+                  htmlFor={Apply.QuickApply}
+                >
                   {Apply.QuickApply}
                 </Label>
               </div>
@@ -198,7 +196,10 @@ export function JobEditForm(props: Props) {
                   {...register('apply')}
                   type='radio'
                 />
-                <Label className='text-md text-job-dark' htmlFor={Apply.ExternalApply}>
+                <Label
+                  className='text-md text-job-dark'
+                  htmlFor={Apply.ExternalApply}
+                >
                   {Apply.ExternalApply}
                 </Label>
               </div>

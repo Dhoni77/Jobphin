@@ -249,25 +249,31 @@ export function JobDetailsEnd(props: IFormProps<IJobDetailsEnd>) {
             <div className='flex space-x-[16px]'>
               <div className='flex items-center justify-center space-x-[4px]'>
                 <Input
-                id={Apply.QuickApply}
+                  id={Apply.QuickApply}
                   value={Apply.QuickApply}
                   className='mr-2 h-4 w-4'
                   {...register('apply')}
                   type='radio'
                 />
-                <Label className='mb-[4px] text-job-dark' htmlFor={Apply.QuickApply}>
+                <Label
+                  className='mb-[4px] text-job-dark'
+                  htmlFor={Apply.QuickApply}
+                >
                   {Apply.QuickApply}
                 </Label>
               </div>
               <div className='flex items-center space-x-[4px]'>
                 <Input
-                id={Apply.ExternalApply}
+                  id={Apply.ExternalApply}
                   className='mr-2 h-4 w-4'
                   value={Apply.ExternalApply}
                   {...register('apply')}
                   type='radio'
                 />
-                <Label className='mb-[4px] text-job-dark' htmlFor={Apply.ExternalApply}>
+                <Label
+                  className='mb-[4px] text-job-dark'
+                  htmlFor={Apply.ExternalApply}
+                >
                   {Apply.ExternalApply}
                 </Label>
               </div>

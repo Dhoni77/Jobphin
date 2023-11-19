@@ -15,8 +15,8 @@ import { createJob } from '@/api';
 import { id } from '@/lib';
 import { addJob } from '@/state/jobSlice';
 import { useAppDispatch } from '@/state/hooks';
-import { Button } from '@/ui/Button/Button';
-import { ErrorMsg } from '@/ui/Form/Label';
+import { Button } from '@/ui';
+import { ErrorMsg } from '@/ui';
 
 interface Props {
   noOfPages: number;

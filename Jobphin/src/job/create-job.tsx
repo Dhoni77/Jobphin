@@ -5,9 +5,9 @@ import {
   DialogTitle,
   DialogOverlay,
   DialogDescription,
-} from '@/ui/Dialog/Dialog';
+} from '@/ui';
 import { Transition } from '@headlessui/react';
-import { Button } from '@/ui/Button/Button';
+import { Button } from '@/ui';
 
 export function CreateJobForm() {
   const [isOpen, setIsOpen] = useState(false);

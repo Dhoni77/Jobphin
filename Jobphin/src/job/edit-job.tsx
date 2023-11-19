@@ -9,14 +9,14 @@ import {
   DialogDescription,
   DialogOverlay,
   DialogTitle,
-} from '@/ui/Dialog/Dialog';
+} from '@/ui';
 import { Fragment, useState } from 'react';
 import { updateJob } from '../api';
 import { modifyJob } from '@/state/jobSlice';
 import { useAppDispatch } from '@/state/hooks';
-import { Button } from '@/ui/Button/Button';
+import { Button } from '@/ui';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { ErrorMsg } from '@/ui/Form/Label';
+import { ErrorMsg } from '@/ui';
 
 interface Props {
   job: IJob;

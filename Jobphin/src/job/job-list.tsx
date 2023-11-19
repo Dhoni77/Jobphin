@@ -9,7 +9,7 @@ import { getJobs } from '@/api';
 import { deleteJob } from '@/api';
 import { useAppDispatch, useAppSelector } from '@/state/hooks';
 import { loadJobs, removeJob } from '@/state/jobSlice';
-import { Button } from '@/ui/Button/Button';
+import { Button } from '@/ui';
 
 export function DisplayJobs() {
   const dispatch = useAppDispatch();

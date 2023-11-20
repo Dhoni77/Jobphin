@@ -95,9 +95,10 @@ Example Body:
         "id": "7cLpk1eaXj_rnZvt6sLgs"
     }
 ```
-### Create a new job
 
-Adds a new job to the jobs collection.
+### Update a job
+
+Updates a job.
 
 **`PUT /jobs/${job_id}`**
 
@@ -120,8 +121,9 @@ Example Body:
         "id": "7cLpk1eaXj_rnZvt6sLgs"
     }
 ```
-### Create a new job
 
-Adds a new job to the jobs collection.
+### Delete a job
+
+Deletes a job from the jobs collection.
 
 **`DELETE /jobs/${job_id}`**

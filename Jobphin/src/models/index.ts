@@ -21,7 +21,9 @@ export const IJobDetailsEndSchema = z.object({
   minSalary: z.number(),
   maxSalary: z.number(),
   totalEmployee: z.string(),
-  apply: z.nativeEnum(Apply),
+  apply: z.nativeEnum(Apply, {
+    invalid_type_error: `Select ${Apply.QuickApply} or ${Apply.ExternalApply} option`,
+  }),
 });
 
 export type IJobDetailsEnd = z.infer<typeof IJobDetailsEndSchema>;

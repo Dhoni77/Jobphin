@@ -1,5 +1,5 @@
-import React, { Fragment, useState } from 'react';
-import { StepForm } from '@/step-form/form';
+import { Fragment, useState } from 'react';
+import { StepForm } from '@/job/step-form/form';
 import { Dialog, DialogTitle, DialogOverlay, DialogDescription } from '@/ui';
 import { Transition } from '@headlessui/react';
 import { Button } from '@/ui';

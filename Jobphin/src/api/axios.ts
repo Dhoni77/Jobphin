@@ -1,5 +1,4 @@
 import axios, { AxiosInstance } from 'axios';
-import { JOB_BASE_URL } from '.';
 
 export class ApiService {
   private static _instance: ApiService;
@@ -7,7 +6,7 @@ export class ApiService {
 
   private constructor() {
     this.instance = axios.create({
-      baseURL: JOB_BASE_URL,
+      baseURL: import.meta.env.VITE_API_URL,
     });
   }
 

@@ -177,7 +177,11 @@ export function JobDetailsStart(props: IFormProps<IJobDetailsStart>) {
 
 export function JobDetailsEnd(props: IFormProps<IJobDetailsEnd>) {
   const { submitHandler, loading } = props;
-  const { register, handleSubmit } = useForm<IJobDetailsEnd>({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IJobDetailsEnd>({
     resolver: zodResolver(IJobDetailsEndSchema),
   });
 
@@ -278,6 +282,7 @@ export function JobDetailsEnd(props: IFormProps<IJobDetailsEnd>) {
                 </Label>
               </div>
             </div>
+            <ErrorMsg className='my-2' errors={errors} field='apply' />
           </div>
           <div className='h-[72px] w-full'></div>
           <div className='flex justify-end'>

@@ -204,6 +204,7 @@ export function JobEditForm(props: Props) {
                 </Label>
               </div>
             </div>
+            <ErrorMsg className='my-2' errors={errors} field='apply' />
           </div>
 
           <div className='flex justify-end'>

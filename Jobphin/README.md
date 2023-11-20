@@ -1,27 +1,127 @@
-# React + TypeScript + Vite
+# Jobphin Assignment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains a Jobs listing application. It consists of a frontend and backend using [MockApi](https://mockapi.io/).
 
-Currently, two official plugins are available:
+## Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+### Frontend
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+```
+cd Jobphin
+pnpm install
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Frontend
+
+---
+
+The frontend is built with React, TypeScript, and Vite.
+
+### Local Development
+
+```
+pnpm run dev
+```
+
+### Production Build
+
+To build the frontend for production, run:
+
+```
+pnpm run build
+pnpm run preview
+```
+
+## Api Testing
+
+---
+
+Api Url: `https://65570fd5bd4bcef8b611f8ac.mockapi.io/api/v1`
+
+## Jobs
+
+### Get all jobs
+
+**`GET /jobs`**
+
+Returns a list of jobs.
+
+Example response:
+
+```
+[
+    {
+        "createdAt": "2023-11-16T23:17:17.452Z",
+        "title": "UX UI Designer",
+        "companyName": "Great Vibes",
+        "industry": "Information Technology",
+        "location": "Chennai, Tamilnadu, India",
+        "remoteType": "In-office",
+        "minExperience": 1,
+        "maxExperience": 2,
+        "minSalary": 30000,
+        "maxSalary": 60000,
+        "totalEmployee": "51-200",
+        "apply": "Apply Now",
+        "id": "7cLpk1eaXj_rnZvt6sLgs"
+    }
+]
+```
+
+### Create a new job
+
+Adds a new job to the jobs collection.
+
+**`POST /jobs`**
+
+Example Body:
+
+```
+    {
+        "createdAt": "2023-11-16T23:17:17.452Z",
+        "title": "UX UI Designer",
+        "companyName": "Great Vibes",
+        "industry": "Information Technology",
+        "location": "Chennai, Tamilnadu, India",
+        "remoteType": "In-office",
+        "minExperience": 1,
+        "maxExperience": 2,
+        "minSalary": 30000,
+        "maxSalary": 60000,
+        "totalEmployee": "51-200",
+        "apply": "Apply Now",
+        "id": "7cLpk1eaXj_rnZvt6sLgs"
+    }
+```
+### Create a new job
+
+Adds a new job to the jobs collection.
+
+**`PUT /jobs/${job_id}`**
+
+Example Body:
+
+```
+    {
+        "createdAt": "2023-11-16T23:17:17.452Z",
+        "title": "UX UI Designer",
+        "companyName": "Great Vibes",
+        "industry": "Information Technology",
+        "location": "Chennai, Tamilnadu, India",
+        "remoteType": "In-office",
+        "minExperience": 1,
+        "maxExperience": 2,
+        "minSalary": 30000,
+        "maxSalary": 60000,
+        "totalEmployee": "51-200",
+        "apply": "Apply Now",
+        "id": "7cLpk1eaXj_rnZvt6sLgs"
+    }
+```
+### Create a new job
+
+Adds a new job to the jobs collection.
+
+**`DELETE /jobs/${job_id}`**

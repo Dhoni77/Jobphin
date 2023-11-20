@@ -88,7 +88,9 @@ export function JobCard(props: IJobCardProps) {
         <div className='flex-1 space-y-1'>
           <h3 className='mt-2 text-left text-lg text-job-dark'>{job.title}</h3>
           <p className='text-left text-sm text-job-dark'>{`${job.companyName} - ${job.industry}`}</p>
-          <p className='pb-[24px] text-left text-sm text-slate-500'>{`${job.location || 'N/A'} (${job.remoteType || 'N/A'})`}</p>
+          <p className='pb-[24px] text-left text-sm text-slate-500'>{`${
+            job.location || 'N/A'
+          } (${job.remoteType || 'N/A'})`}</p>
           <p className='pb-[8px] text-left text-sm text-job-dark'>
             Part-Time (9.00 am - 5.00 pm IST)
           </p>

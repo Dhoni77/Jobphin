@@ -228,7 +228,7 @@ export function JobEditForm(props: Props) {
                   )}
                 />
                 <Label className='text-md text-job-dark' htmlFor='quickapply'>
-                  {Apply.QuickApply}
+                  Quick Apply
                 </Label>
               </div>
               <div className='flex items-center justify-center'>

@@ -290,7 +290,7 @@ export function JobDetailsEnd(props: IFormProps<IJobDetailsEnd>) {
                   type='radio'
                 />
                 <Label className='mb-[4px] text-job-dark' htmlFor='quick-apply'>
-                  {Apply.QuickApply}
+                  Quick Apply
                 </Label>
               </div>
               <div className='flex items-center space-x-[4px]'>

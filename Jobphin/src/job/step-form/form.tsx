@@ -113,10 +113,15 @@ export function JobDetailsStart(props: IFormProps<IJobDetailsStart>) {
       <form onSubmit={(e) => handleSubmit(submitHandler)(e)}>
         <FieldsetLegend className='flex flex-col space-y-[24px]'>
           <div>
-            <Label className='mb-[4px] text-job-dark' required={true}>
+            <Label
+              className='mb-[4px] text-job-dark'
+              required={true}
+              htmlFor='title'
+            >
               Job title
             </Label>
             <Input
+              id='title'
               className='w-full placeholder:text-job-placeholder'
               {...register('title')}
               placeholder='ex. UX UI Designer'
@@ -124,10 +129,15 @@ export function JobDetailsStart(props: IFormProps<IJobDetailsStart>) {
             <ErrorMsg className='my-2' errors={errors} field='title' />
           </div>
           <div>
-            <Label className='mb-[4px] text-job-dark' required={true}>
+            <Label
+              className='mb-[4px] text-job-dark'
+              required={true}
+              htmlFor='companyName'
+            >
               Company name
             </Label>
             <Input
+              id='companyName'
               className='w-full placeholder:text-job-placeholder'
               {...register('companyName')}
               placeholder='ex. Google'
@@ -135,10 +145,15 @@ export function JobDetailsStart(props: IFormProps<IJobDetailsStart>) {
             <ErrorMsg className='my-2' errors={errors} field='companyName' />
           </div>
           <div>
-            <Label className='mb-[4px] text-job-dark' required={true}>
+            <Label
+              className='mb-[4px] text-job-dark'
+              required={true}
+              htmlFor='industry'
+            >
               Industry
             </Label>
             <Input
+              id='industry'
               className='w-full placeholder:text-job-placeholder'
               {...register('industry')}
               placeholder='ex. Information Technology'
@@ -147,16 +162,22 @@ export function JobDetailsStart(props: IFormProps<IJobDetailsStart>) {
           </div>
           <div className='flex space-x-[24px]'>
             <div className='flex-1'>
-              <Label className='mb-[4px] text-job-dark'>Location</Label>
+              <Label className='mb-[4px] text-job-dark' htmlFor='location'>
+                Location
+              </Label>
               <Input
+                id='location'
                 className='w-full placeholder:text-job-placeholder'
                 {...register('location')}
                 placeholder='ex. Chennai'
               />
             </div>
             <div className='flex-1'>
-              <Label className='mb-[4px] text-job-dark'>Remote type</Label>
+              <Label className='mb-[4px] text-job-dark' htmlFor='remoteType'>
+                Remote type
+              </Label>
               <Input
+                id='remoteType'
                 className='w-full placeholder:text-job-placeholder'
                 {...register('remoteType')}
                 placeholder='ex. In-office'
@@ -190,7 +211,9 @@ export function JobDetailsEnd(props: IFormProps<IJobDetailsEnd>) {
       <form onSubmit={(e) => handleSubmit(submitHandler)(e)}>
         <FieldsetLegend className='flex flex-col space-y-[24px]'>
           <div>
-            <Label className='mb-[4px] text-job-dark'>Experience</Label>
+            <Label className='mb-[4px] text-job-dark' htmlFor='experience'>
+              Experience
+            </Label>
             <div className='flex space-x-[24px]'>
               <div className='flex-1'>
                 <Input
@@ -217,12 +240,14 @@ export function JobDetailsEnd(props: IFormProps<IJobDetailsEnd>) {
             </div>
           </div>
           <div>
-            <Label className='mb-[4px] text-job-dark'>Salary</Label>
+            <Label className='mb-[4px] text-job-dark' htmlFor='salary'>
+              Salary
+            </Label>
             <div className='flex space-x-[24px]'>
               <div className='flex-1'>
                 <Input
                   className='w-full placeholder:text-job-placeholder'
-                  {...register('minSalary', { min: 0, valueAsNumber: true })}
+                  {...register('minSalary', { valueAsNumber: true })}
                   placeholder='Minimum'
                   type='number'
                 ></Input>
@@ -230,7 +255,7 @@ export function JobDetailsEnd(props: IFormProps<IJobDetailsEnd>) {
               <div className='flex-1'>
                 <Input
                   className='w-full placeholder:text-job-placeholder'
-                  {...register('maxSalary', { min: 0, valueAsNumber: true })}
+                  {...register('maxSalary', { valueAsNumber: true })}
                   placeholder='Maximum'
                   type='number'
                 ></Input>
@@ -238,8 +263,11 @@ export function JobDetailsEnd(props: IFormProps<IJobDetailsEnd>) {
             </div>
           </div>
           <div>
-            <Label className='mb-[4px] text-job-dark'>Total employee</Label>
+            <Label className='mb-[4px] text-job-dark' htmlFor='totalEmployee'>
+              Total employee
+            </Label>
             <Input
+              id='totalEmployee'
               className='w-full placeholder:text-job-placeholder'
               {...register('totalEmployee')}
               placeholder='ex. 100'
@@ -248,27 +276,26 @@ export function JobDetailsEnd(props: IFormProps<IJobDetailsEnd>) {
           </div>
           <div>
             <div>
-              <Label className='mb-[4px] text-job-dark'>Apply Type</Label>
+              <Label className='mb-[4px] text-job-dark' htmlFor='applyType'>
+                Apply Type
+              </Label>
             </div>
             <div className='flex space-x-[16px]'>
               <div className='flex items-center justify-center space-x-[4px]'>
                 <Input
-                  id={Apply.QuickApply}
+                  id='quick-apply'
                   value={Apply.QuickApply}
                   className='mr-2 h-4 w-4'
                   {...register('apply')}
                   type='radio'
                 />
-                <Label
-                  className='mb-[4px] text-job-dark'
-                  htmlFor={Apply.QuickApply}
-                >
+                <Label className='mb-[4px] text-job-dark' htmlFor='quick-apply'>
                   {Apply.QuickApply}
                 </Label>
               </div>
               <div className='flex items-center space-x-[4px]'>
                 <Input
-                  id={Apply.ExternalApply}
+                  id='external-apply'
                   className='mr-2 h-4 w-4'
                   value={Apply.ExternalApply}
                   {...register('apply')}
@@ -276,7 +303,7 @@ export function JobDetailsEnd(props: IFormProps<IJobDetailsEnd>) {
                 />
                 <Label
                   className='mb-[4px] text-job-dark'
-                  htmlFor={Apply.ExternalApply}
+                  htmlFor='external-apply'
                 >
                   {Apply.ExternalApply}
                 </Label>

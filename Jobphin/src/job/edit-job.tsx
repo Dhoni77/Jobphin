@@ -1,4 +1,4 @@
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { SubmitHandler, useForm, Controller } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { Apply, IJob, IJobSchema } from '@/models';
 import { FieldsetLegend, Input, Label } from '@/ui';
@@ -24,6 +24,7 @@ export function JobEditForm(props: Props) {
   const {
     register,
     handleSubmit,
+    control,
     formState: { errors },
   } = useForm<IJob>({
     defaultValues: {
@@ -58,10 +59,15 @@ export function JobEditForm(props: Props) {
       <form onSubmit={(e) => handleSubmit(submitHandler)(e)}>
         <FieldsetLegend className='flex flex-col space-y-2'>
           <div>
-            <Label className='text-md mb-2 text-job-dark' required={true}>
+            <Label
+              className='text-md mb-2 text-job-dark'
+              required={true}
+              htmlFor='title'
+            >
               Job Title
             </Label>
             <Input
+              id='title'
               className='w-full placeholder:text-job-placeholder'
               {...register('title')}
               placeholder='ex. UX UI Designer'
@@ -69,10 +75,15 @@ export function JobEditForm(props: Props) {
             <ErrorMsg className='my-2' errors={errors} field='title' />
           </div>
           <div>
-            <Label className='text-md mb-2 text-job-dark' required={true}>
+            <Label
+              className='text-md mb-2 text-job-dark'
+              required={true}
+              htmlFor='companyName'
+            >
               Company name
             </Label>
             <Input
+              id='companyName'
               className='w-full placeholder:text-job-placeholder'
               {...register('companyName')}
               placeholder='ex. Google'
@@ -80,10 +91,15 @@ export function JobEditForm(props: Props) {
             <ErrorMsg className='my-2' errors={errors} field='companyName' />
           </div>
           <div>
-            <Label className='text-md mb-2 text-job-dark' required={true}>
+            <Label
+              className='text-md mb-2 text-job-dark'
+              required={true}
+              htmlFor='industry'
+            >
               Industry
             </Label>
             <Input
+              id='industry'
               className='w-full placeholder:text-job-placeholder'
               {...register('industry')}
               placeholder='ex. Information Technology'
@@ -92,16 +108,25 @@ export function JobEditForm(props: Props) {
           </div>
           <div className='flex space-x-5'>
             <div className='flex-1'>
-              <Label className='text-md mb-2 text-job-dark'>Location</Label>
+              <Label className='text-md mb-2 text-job-dark' htmlFor='location'>
+                Location
+              </Label>
               <Input
+                id='location'
                 className='w-full placeholder:text-job-placeholder'
                 {...register('location')}
                 placeholder='ex. Chennai'
               />
             </div>
             <div className='flex-1'>
-              <Label className='text-md mb-2 text-job-dark'>Remote type</Label>
+              <Label
+                className='text-md mb-2 text-job-dark'
+                htmlFor='remoteType'
+              >
+                Remote type
+              </Label>
               <Input
+                id='remoteType'
                 className='w-full placeholder:text-job-placeholder'
                 {...register('remoteType')}
                 placeholder='ex. In-office'
@@ -110,10 +135,13 @@ export function JobEditForm(props: Props) {
           </div>
 
           <div>
-            <Label className='text-md mb-2 text-job-dark'>Experience</Label>
+            <Label className='text-md mb-2 text-job-dark' htmlFor='experience'>
+              Experience
+            </Label>
             <div className='flex space-x-5'>
               <div className='flex-1'>
                 <Input
+                  id='minexperience'
                   className='placeholder:text-job-placeholder'
                   {...register('minExperience', {
                     min: 0,
@@ -125,6 +153,7 @@ export function JobEditForm(props: Props) {
               </div>
               <div className='1 flex'>
                 <Input
+                  id='maxexperience'
                   className='w-full placeholder:text-job-placeholder'
                   {...register('maxExperience', {
                     min: 0,
@@ -138,10 +167,13 @@ export function JobEditForm(props: Props) {
           </div>
 
           <div>
-            <Label className='text-md mb-2 text-job-dark'>Salary</Label>
+            <Label className='text-md mb-2 text-job-dark' htmlFor='salary'>
+              Salary
+            </Label>
             <div className='flex space-x-5'>
               <div className='flex-1'>
                 <Input
+                  id='minsalary'
                   className='w-full placeholder:text-job-placeholder'
                   {...register('minSalary', { min: 0, valueAsNumber: true })}
                   placeholder='Minimum'
@@ -150,6 +182,7 @@ export function JobEditForm(props: Props) {
               </div>
               <div className='flex-1'>
                 <Input
+                  id='maxsalary'
                   className='w-full placeholder:text-job-placeholder'
                   {...register('maxSalary', { min: 0, valueAsNumber: true })}
                   placeholder='Maximum'
@@ -160,8 +193,14 @@ export function JobEditForm(props: Props) {
           </div>
 
           <div>
-            <Label className='text-md mb-2 text-job-dark'>Total employee</Label>
+            <Label
+              className='text-md mb-2 text-job-dark'
+              htmlFor='totalEmployee'
+            >
+              Total employee
+            </Label>
             <Input
+              id='totalEmployee'
               className='w-full placeholder:text-job-placeholder'
               {...register('totalEmployee')}
               placeholder='ex. 100'
@@ -174,31 +213,42 @@ export function JobEditForm(props: Props) {
             </div>
             <div className='flex space-x-5'>
               <div className='flex items-center justify-center'>
-                <Input
-                  id={Apply.QuickApply}
-                  value={Apply.QuickApply}
-                  className='mr-2 h-4 w-4'
-                  {...register('apply')}
-                  type='radio'
+                <Controller
+                  name='apply'
+                  control={control}
+                  render={({ field }) => (
+                    <Input
+                      {...field}
+                      id='quickapply'
+                      value={Apply.QuickApply}
+                      className='mr-2 h-4 w-4'
+                      {...register('apply', { required: true })}
+                      type='radio'
+                    />
+                  )}
                 />
-                <Label
-                  className='text-md text-job-dark'
-                  htmlFor={Apply.QuickApply}
-                >
+                <Label className='text-md text-job-dark' htmlFor='quickapply'>
                   {Apply.QuickApply}
                 </Label>
               </div>
               <div className='flex items-center justify-center'>
-                <Input
-                  id={Apply.ExternalApply}
-                  value={Apply.ExternalApply}
-                  className='mr-2 h-4 w-4'
-                  {...register('apply')}
-                  type='radio'
+                <Controller
+                  name='apply'
+                  control={control}
+                  render={({ field }) => (
+                    <Input
+                      {...field}
+                      id='externalapply'
+                      value={Apply.ExternalApply}
+                      className='mr-2 h-4 w-4'
+                      {...register('apply', { required: true })}
+                      type='radio'
+                    />
+                  )}
                 />
                 <Label
                   className='text-md text-job-dark'
-                  htmlFor={Apply.ExternalApply}
+                  htmlFor='externalapply'
                 >
                   {Apply.ExternalApply}
                 </Label>

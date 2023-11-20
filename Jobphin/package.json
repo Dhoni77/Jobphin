@@ -9,7 +9,8 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "format": "prettier --config .prettierrc --write src/**/*.{ts,tsx}",
     "preview": "vite preview",
-    "deploy": "surge dist ."
+    "deploy": "surge dist .",
+    "deploy:prod": "pnpm run build & pnpm run deploy"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",

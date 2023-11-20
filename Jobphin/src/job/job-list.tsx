@@ -63,6 +63,11 @@ export function JobCard(props: IJobCardProps) {
   const deleteCard = (id: string) => {
     deleteJob(id)
       .then(() => {
+        toast('The job has been deleted successfully', {
+          duration: 2000,
+          icon: '✅',
+          position: 'top-right',
+        });
         dispatch(removeJob(id));
       })
       .catch(() => {
@@ -83,12 +88,12 @@ export function JobCard(props: IJobCardProps) {
         <div className='flex-1 space-y-1'>
           <h3 className='mt-2 text-left text-lg text-job-dark'>{job.title}</h3>
           <p className='text-left text-sm text-job-dark'>{`${job.companyName} - ${job.industry}`}</p>
-          <p className='pb-[24px] text-left text-sm text-slate-500'>{`${job.location} (${job.remoteType})`}</p>
+          <p className='pb-[24px] text-left text-sm text-slate-500'>{`${job.location || 'N/A'} (${job.remoteType || 'N/A'})`}</p>
           <p className='pb-[8px] text-left text-sm text-job-dark'>
             Part-Time (9.00 am - 5.00 pm IST)
           </p>
           <p className='pb-[8px] text-left text-sm text-job-dark'>{`Experience (${job.minExperience} - ${job.maxExperience} years)`}</p>
-          <p className='pb-[8px] text-left text-sm text-job-dark'>{`INR (₹) ${job.minSalary.toLocaleString()} - ${job.maxSalary.toLocaleString()} / Month`}</p>
+          <p className='pb-[8px] text-left text-sm text-job-dark'>{`INR (₹) ${job.minSalary?.toLocaleString()} - ${job.maxSalary?.toLocaleString()} / Month`}</p>
           <p className='pb-[24px] text-left text-sm text-job-dark'>{`${job.totalEmployee} employees`}</p>
           <div className='mt-auto flex justify-start pb-[16px]'>
             {job.apply === Apply.QuickApply ? (
